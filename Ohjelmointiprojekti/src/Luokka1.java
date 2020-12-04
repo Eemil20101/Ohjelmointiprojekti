@@ -22,7 +22,7 @@ public class Luokka1 {
 		// Tietokannan taulun kentät tulostusta varten
 		int id;
 		//String nimi;
-		int hinta;	
+		//int hinta;	
 		String tekemattomatTehtavat;
 		
 		//Scanner in = new Scanner(System.in);
@@ -43,7 +43,7 @@ public class Luokka1 {
 			// 2. MySQL-kysely
 			statement = connection.createStatement();
 
-			String querySelect = "SELECT tekemattomatTehtavat FROM Ryhma8";
+			String querySelect = "SELECT * FROM Ryhma8";
 			//String queryInsert = "INSERT INTO tuotteet (nimi,hinta) VALUES ('"+nimi+"',"+hinta+")";
 			//System.out.println(queryInstert);
 			
@@ -52,15 +52,15 @@ public class Luokka1 {
 			//statement.executeUpdate(queryInsert);
 			
 			// 4. Vastauksen käsittely
-//			System.out.println("ID\tNIMI\tHINTA");
-//
-//			while (resultSet.next()) {
-//				id = resultSet.getInt("id");
-//				tekemattomatTehtavat = resultSet.getString("Tekemättömät tehtävät");
-////				nimi = resultSet.getString("nimi");  
-//				//hinta = resultSet.getInt("hinta");
-//				System.out.println(id + "\t" + tekemattomatTehtavat);
-//			}               //laitoin kommentiksi kun en nyt ainakaan tarvi nimeä enkä hintaa
+			System.out.println("ID\tTekemättömät Tehtävät");
+
+			while (resultSet.next()) {
+				id = resultSet.getInt("id");
+				tekemattomatTehtavat = resultSet.getString("tekemattomatTehtavat");
+				//nimi = resultSet.getString("nimi");  
+				//hinta = resultSet.getInt("hinta");
+				System.out.println(id + "\t" + tekemattomatTehtavat);
+			}               //laitoin kommentiksi kun en nyt ainakaan tarvi nimeä enkä hintaa
 			
 		} 
 		catch (Exception ex) {
